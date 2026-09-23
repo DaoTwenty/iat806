@@ -3,12 +3,51 @@
    sizes. Every page on the site uses this one file.
    =========================================================== */
 
+/* Light is the default. Dark kicks in from your system setting,
+   or from the toggle button (theme.js), which sets data-theme. */
 :root {
   --ink: #16161a;          /* main text color */
-  --muted: #6b6b76;        /* quieter text */
-  --accent: #2f4fd8;       /* links and highlights */
-  --paper: #fdfdfb;        /* page background */
-  --line: #e4e4e0;         /* borders */
+  --muted: #5f5f6b;        /* quieter text */
+  --accent: #6d28d9;       /* links and highlights (violet) */
+  --accent-2: #db2777;     /* second gradient stop (magenta) */
+  --accent-3: #0891b2;     /* third gradient stop (cyan) */
+  --paper: #fbfaf7;        /* page background */
+  --card: #ffffff;         /* card background */
+  --line: #e6e3ee;         /* borders */
+  --glow: rgba(109, 40, 217, 0.18);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #ececf1;
+    --muted: #9a9aab;
+    --accent: #a78bfa;
+    --accent-2: #f472b6;
+    --accent-3: #22d3ee;
+    --paper: #0d0d13;
+    --card: #15151f;
+    --line: #26263a;
+    --glow: rgba(167, 139, 250, 0.25);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --ink: #ececf1;
+  --muted: #9a9aab;
+  --accent: #a78bfa;
+  --accent-2: #f472b6;
+  --accent-3: #22d3ee;
+  --paper: #0d0d13;
+  --card: #15151f;
+  --line: #26263a;
+  --glow: rgba(167, 139, 250, 0.25);
+  color-scheme: dark;
+}
+
+:root {
+  --gradient: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent));
 }
 
 * { box-sizing: border-box; }
@@ -21,6 +60,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 1.6;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Keeps everything in a readable column in the middle of the page */
@@ -37,8 +77,25 @@ header {
   align-items: baseline;
   gap: 0.5rem 1.5rem;
   padding: 2rem 0 1.5rem;
-  border-bottom: 1px solid var(--line);
   margin-bottom: 2.5rem;
+  position: relative;
+}
+
+/* The animated "signal" line under the header */
+header::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--gradient);
+  background-size: 300% 100%;
+  animation: flow 8s linear infinite;
+}
+
+@keyframes flow {
+  from { background-position: 0% 0; }
+  to   { background-position: 300% 0; }
 }
 
 header .site-name {
@@ -57,12 +114,47 @@ header nav a {
 
 header nav a:hover { color: var(--accent); }
 
+header nav { display: flex; align-items: center; }
+
+/* Light/dark toggle button (added by theme.js) */
+.theme-toggle {
+  margin-left: 1.25rem;
+  width: 2.1rem;
+  height: 2.1rem;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--glow);
+}
+
 /* --- text --------------------------------------------------- */
 
 h1 {
   font-size: 2.1rem;
   line-height: 1.2;
   margin: 0 0 0.5rem;
+}
+
+/* Gradient text for the big name on the home page */
+.gradient-text {
+  background: var(--gradient);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: flow 12s linear infinite;
 }
 
 h2 {
@@ -76,7 +168,13 @@ h2 {
   margin: 0 0 2rem;
 }
 
-a { color: var(--accent); }
+a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+a:hover { color: var(--accent-2); }
 
 /* --- the list of links on the projects pages ----------------- */
 
@@ -88,12 +186,17 @@ a { color: var(--accent); }
 
 .card-list li {
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 12px;
+  background: var(--card);
   margin-bottom: 0.9rem;
-  transition: border-color 0.15s ease;
+  transition: border-color 0.15s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.card-list li:hover { border-color: var(--accent); }
+.card-list li:hover {
+  border-color: var(--accent);
+  box-shadow: 0 6px 24px var(--glow);
+  transform: translateY(-2px);
+}
 
 .card-list a {
   display: block;
@@ -135,4 +238,9 @@ footer {
   border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+/* Respect people who turn off animations in their OS settings */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }
