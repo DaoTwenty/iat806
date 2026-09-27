@@ -228,7 +228,9 @@ a:hover { color: var(--accent-2); }
 
 .back:hover { color: var(--accent); }
 
-canvas { max-width: 100%; }
+/* p5 sets an inline width and height on the canvas. If the page is narrower
+   than the canvas, shrink the width and keep the ratio instead of squashing it. */
+canvas { max-width: 100%; height: auto !important; }
 
 /* --- footer -------------------------------------------------- */
 
