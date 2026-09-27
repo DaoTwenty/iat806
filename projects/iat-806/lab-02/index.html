@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="../../../style.css">
   <script src="../../../theme.js"></script>
 
+  <!-- p5.js, version 2.3.3. Every sketch page needs this line. -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@2.3.3/lib/p5.min.js"></script>
+
+  <!-- Your code. Keep this line last. -->
+  <script src="sketch.js"></script>
 </head>
 <body>
 
@@ -23,17 +28,11 @@
   <main>
     <a class="back" href="../index.html">&larr; IAT 806</a>
 
-    <h1>Lab 02 — Repelling Moon</h1>
-    <p class="tagline">A moon that bounces around the canvas while you push it away with an Earth.</p>
+    <h1>Lab 02 — Moon and Earth</h1>
+    <p class="tagline">A moon that bounces around the canvas while an Earth follows your cursor.</p>
 
-    <ul class="card-list">
-      <li>
-        <a href="sketch/index.html">
-          <span class="title">Sketch &rarr;</span>
-          <span class="description">Click and hold to repel the moon from your cursor. It grows and shrinks as it bounces off the edges.</span>
-        </a>
-      </li>
-    </ul>
+    <!-- The canvas p5 creates gets placed right here. -->
+    <div id="sketch-holder"></div>
 
     <p>
       Source code: <a href="https://github.com/DaoTwenty/IAT806-Lab02">github.com/DaoTwenty/IAT806-Lab02</a>
@@ -41,10 +40,12 @@
 
     <h2>Notes</h2>
     <p>
-      While the mouse is held down, a repelling force pushes the moon directly
-      away from the cursor, and the Earth (with a radial gradient glow) is
-      drawn under it. The moon's speed is capped, and its size shrinks and
-      grows between a minimum and maximum as it bounces.
+      The Earth follows your mouse. Click and hold to switch on its
+      gravitational force, which acts on the moon with a strength that falls
+      off with distance, drawn as a pulsating aura around the Earth and a line
+      showing the direction of the pull. The moon's speed is capped, it grows
+      and shrinks as it bounces off the walls, and it leaves a fading trail
+      behind it.
     </p>
   </main>
 
