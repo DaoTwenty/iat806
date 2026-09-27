@@ -27,12 +27,10 @@ let trail_start_color;
 let trail_end_color;
 
 async function setup() {
-  const canvas = createCanvas(800, 600);
-  // put the canvas inside the <div id="sketch-holder"> in index.html
-  canvas.parent("sketch-holder");
+  createCanvas(800, 600);
   stroke("#ffffff");
-  earth_image = await loadImage("earth.png");
-  moon_image = await loadImage("moon.png");
+  earth_image = await loadImage("assets/earth.png");
+  moon_image = await loadImage("assets/moon.png");
   circle_mask_moon = createGraphics(100, 100);
   circle_mask_moon.circle(50, 50, 90);
   moon_image.resize(100, 100);
