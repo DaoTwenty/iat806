@@ -5,7 +5,11 @@
 let turtle;
 
 async function setup() {
-  createCanvas(800, 600);
+  const canvas = createCanvas(800, 600);
+
+  // Puts the canvas inside the <div id="sketch-holder"> in index.html,
+  // instead of dropping it at the bottom of the page.
+  canvas.parent("sketch-holder");
 
   // The turtle's face. Drop any image into this folder and point at it here —
   // it gets scaled and cropped into a circle, so anything roughly square works.

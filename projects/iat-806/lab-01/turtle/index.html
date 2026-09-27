@@ -1,23 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KardunTurtle</title>
-    <script src="https://cdn.jsdelivr.net/npm/p5@2.3.3/lib/p5.min.js"></script>
-    <style>
-      body {
-        margin: 0;
-        display: grid;
-        place-items: center;
-        min-height: 100vh;
-        background: #14161a;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- the turtle class has to load before the sketch that uses it -->
-    <script src="turtle.js"></script>
-    <script src="sketch.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 01 — Turtle — Paul Triana</title>
+
+  <!-- Four folders deep, so four levels up to the stylesheet -->
+  <link rel="stylesheet" href="../../../../style.css">
+  <script src="../../../../theme.js"></script>
+
+  <!-- p5.js, version 2.3.3. Every sketch page needs this line. -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@2.3.3/lib/p5.min.js"></script>
+
+  <!-- Your code. Keep this line last. -->
+  <!-- the turtle class has to load before the sketch that uses it -->
+  <script src="turtle.js"></script>
+  <script src="sketch.js"></script>
+</head>
+<body>
+
+  <header>
+    <a class="site-name" href="../../../../index.html">Paul Triana</a>
+    <nav>
+      <a href="../../../../index.html">Home</a>
+      <a href="../../../index.html">Projects</a>
+    </nav>
+  </header>
+
+  <main>
+    <a class="back" href="../index.html">&larr; Lab 01</a>
+
+    <h1>Lab 01 — Turtle</h1>
+    <p class="tagline">A turtle that walks a list of coordinates and draws a cat outline. Press R to redraw.</p>
+
+    <!-- The canvas p5 creates gets placed right here. -->
+    <div id="sketch-holder"></div>
+
+    <h2>Notes</h2>
+    <p>
+      I sketched the cat as lists of points on a grid, then wrote helpers that
+      turn each pair of points into a heading and a distance, so the turtle
+      can trace every shape with <code>setHeading()</code> and
+      <code>forward()</code>.
+    </p>
+  </main>
+
+  <footer>
+    <p><a href="../index.html">&larr; Back to Lab 01</a></p>
+  </footer>
+
+</body>
 </html>

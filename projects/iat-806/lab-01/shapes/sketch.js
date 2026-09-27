@@ -1,5 +1,9 @@
 function setup() {
-  createCanvas(600, 600);
+  const canvas = createCanvas(600, 600);
+
+  // Puts the canvas inside the <div id="sketch-holder"> in index.html,
+  // instead of dropping it at the bottom of the page.
+  canvas.parent("sketch-holder");
 }
 
 function draw() {
