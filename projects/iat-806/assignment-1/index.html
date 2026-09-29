@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assignment 1 — The Ole Rag'n'Cat Pub — Paul Triana</title>
+
+  <!-- Three folders deep, so three levels up to the stylesheet -->
+  <link rel="stylesheet" href="../../../style.css">
+  <script src="../../../theme.js"></script>
+
+  <!-- p5.js and its dependencies. Every sketch page needs these. -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@2.3.4/lib/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5.sound@0.4.1/dist/p5.sound.min.js"></script>
+  <script src="https://colxi.info/midi-parser-js/src/main.js"></script>
+  <script type="module">
+    import { SplendidGrandPiano } from "https://unpkg.com/smplr/dist/index.mjs";
+    window.SplendidGrandPiano = SplendidGrandPiano;
+  </script>
+
+  <!-- Your code. Keep this section last. -->
+  <script src="sketch.js"></script>
+  <script src="ant.js"></script>
+  <script src="score.js"></script>
+  <script src="piano.js"></script>
+  <script src="synthesis.js"></script>
+  <script src="cat.js"></script>
+  <script src="loading.js"></script>
+  <script src="angry.js"></script>
+</head>
+<body>
+
+  <header>
+    <a class="site-name" href="../../../index.html">Paul Triana</a>
+    <nav>
+      <a href="../../../index.html">Home</a>
+      <a href="../../index.html">Projects</a>
+    </nav>
+  </header>
+
+  <main>
+    <a class="back" href="../index.html">&larr; IAT 806</a>
+
+    <h1>Assignment 1 — The Ole Rag'n'Cat Pub</h1>
+    <p class="tagline">A fun mini-game that takes place in a rustic pub.</p>
+
+    <!-- The canvas p5 creates gets placed right here. -->
+    <div id="sketch-holder"></div>
+
+    <h2>Instructions</h2>
+    <p>
+      Feel free to play with the piano yourself by pressing the keys.
+    </p>
+    <p>
+      You may also start or stop the ghost pianist by pressing 'p'. If you
+      interrupt them more than 3 times, they might get angry...
+    </p>
+    <p>
+      Spawn ants by pressing 'a'. To get rid of them, try to squish them by
+      clicking on them!
+    </p>
+    <p>
+      Finally, a surprise awaits you if you high five the secret cat...
+    </p>
+
+    <p>
+      Source code: <a href="https://github.com/DaoTwenty/IAT806-Assignment-1">github.com/DaoTwenty/IAT806-Assignment-1</a>
+    </p>
+  </main>
+
+  <footer>
+    <p><a href="../index.html">&larr; Back to IAT 806</a></p>
+  </footer>
+
+</body>
+</html>
