@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lab 03 — Make the Dancers Yours — Paul Triana</title>
+  <title>Lab 03 — Dancing Zombies — Paul Triana</title>
 
   <!-- Three folders deep, so three levels up to the stylesheet -->
   <link rel="stylesheet" href="../../../style.css">
@@ -16,6 +16,10 @@
   <script src="https://cdn.jsdelivr.net/npm/p5.sound@0.4.1/dist/p5.sound.min.js"></script>
 
   <!-- Your code. Keep this line last. -->
+  <script src="background.js"></script>
+  <script src="zombie.js"></script>
+  <script src="sound.js"></script>
+  <script src="grenade.js"></script>
   <script src="sketch.js"></script>
 </head>
 <body>
@@ -31,15 +35,25 @@
   <main>
     <a class="back" href="../index.html">&larr; IAT 806</a>
 
-    <h1>Lab 03 — Make the Dancers Yours</h1>
-    <p class="tagline">Dancers, arrays and sound.</p>
+    <h1>Lab 03 — Dancing Zombies</h1>
+    <p class="tagline">Pixel zombies that dance, groan, freeze and blow up.</p>
 
     <!-- The canvas p5 creates gets placed right here. -->
     <div id="sketch-holder"></div>
 
-    <h2>Notes</h2>
+    <h2>How to play</h2>
     <p>
-      TODO: how to play (what to click, which key to press).
+      Click the canvas first so the browser allows sound. Press
+      <strong>Z</strong> to create a zombie (up to five at once) and click a
+      zombie to make it groan. Press <strong>G</strong> to drop a grenade at a
+      random spot, then drag it and let go: it always explodes, and it
+      obliterates any zombie it lands on. Press <strong>space</strong> to
+      freeze everything in ice and winter, and space again to thaw it. The
+      background slowly cycles from night to day and back.
+    </p>
+    <p>
+      Sounds are CC0 from OpenGameArt (artisticdude, qubodup, EZduzziteh,
+      NenadSimic, bart). Credits are in the <code>sounds/</code> folders.
     </p>
 
     <p>
