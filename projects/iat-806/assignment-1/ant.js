@@ -47,7 +47,7 @@ class Splat {
 
 class Ant {
 
-  constructor(start_x, start_y, speed) {
+  constructor(start_x, start_y, speed, sound) {
     this.x = start_x;
     this.y = start_y;
     this.speed = speed;
@@ -57,6 +57,7 @@ class Ant {
     this.kill_frame = -1;
     this.done = false;
     this.alpha = "ff";
+    this.splat_sound = sound;
   }
 
   loop() {
@@ -171,6 +172,10 @@ class Ant {
       this.killed = true;
       this.kill_frame = frameCount;
       this.splat = new Splat(this.x,this.y);
+      // p5.sound 0.4: playing is never reset when a sound ends, so isPlaying() stays
+      // true after the first play. Restart explicitly instead of checking it.
+      this.splat_sound.stop();
+      this.splat_sound.start();
     }
   }
 

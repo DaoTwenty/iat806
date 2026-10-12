@@ -1,0 +1,3 @@
+Splat sounds: "Squish Sounds Effects" by EZduzziteh, CC0 (public domain)
+https://opengameart.org/content/squish-sounds-effects
+splat_0 = squish_01, splat_1 = squish_02, splat_2 = squish_04, splat_3 = squishpop, splat_4 = squishsplat_impact

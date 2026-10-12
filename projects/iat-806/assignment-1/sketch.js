@@ -16,6 +16,7 @@ let x = 300;
 let y = 300;
 let ants = [];
 let ants_indices_to_remove = [];
+let splat_sounds = [];
 
 // obstacles
 let circle_obstacles = [
@@ -48,17 +49,19 @@ async function async_setup(callback) {
   await pianoSound.ready;
   midi = await new Score("assets/Maple-Leaf-Rag.mid", pianoSound);
   video = await createVideo("assets/cat_video.mp4");
-  pianist = new AngryPianist(3, 90);
+  pianist = new AngryPianist(3, 200);
   await pianist.setup();
   video.hide();
   video.volume(1);
   video.onended(handleVideoEnd);
-  callback()
+  for (let i = 0; i < 5; i++) {
+    splat_sounds.push(await loadSound(`assets/splat/splat_${i}.mp3`));
+  }
+  callback();
 }
 
-async function setup() {
-  let canvas = createCanvas(600, 400);
-  canvas.parent("sketch-holder");
+function setup() {
+  createCanvas(600, 400);
   angleMode(DEGREES);
   moving_paw = new MovingPaw(-100, 50, -30, 50, 1);
   flash_c1 = color("#1123ae");
@@ -170,7 +173,7 @@ function keyPressed() {
   }
 
   if (key == "a") {
-    ants.push(new Ant(x, y, speed));
+    ants.push(new Ant(x, y, speed, splat_sounds[Math.floor(random(0, 5))]));
   }
 
   if (video_playing == true) {
