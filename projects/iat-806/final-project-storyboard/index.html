@@ -30,14 +30,23 @@
     <p class="tagline">Draft</p>
 
     <p>
-      An instrument where audio is the prompt. A visitor feeds in sound,
-      MIDI-GPT writes MIDI loops conditioned on it, and a radial sequencer
-      with particle effects shows what the model heard and what it wrote.
+      An instrument where audio is both a track and a prompt. A visitor feeds
+      in sound, which plays in the mix and conditions MIDI-GPT. The model
+      writes MIDI loops, and a radial sequencer with particle effects shows
+      what it heard and what it wrote.
     </p>
+
+    <h2>Tracks and pipelines</h2>
+    <ul>
+      <li><strong>Audio track:</strong> a loop, a one-shot, or a continuous stream. It plays through its own FX and the mix.</li>
+      <li><strong>MIDI track:</strong> drawn, played, or generated. A synth or sampler module renders it to sound, and it can also condition MIDI-GPT.</li>
+      <li><strong>MIDI-GPT:</strong> reads audio and MIDI conditioning from tracks and writes MIDI (track generation and infilling).</li>
+      <li><strong>Modules are swappable:</strong> browser synth, Max/MSP, RAVE, Stable Audio.</li>
+    </ul>
 
     <h2>Scope</h2>
     <ul>
-      <li><strong>Core (midpoint demo):</strong> frames 2&ndash;5. Audio in, MIDI-GPT, a loop playing on the ring, one control, basic particles.</li>
+      <li><strong>Core (midpoint demo):</strong> frames 2&ndash;5. An audio track playing, MIDI-GPT generating a MIDI track from it, both in the mix, one control, basic particles.</li>
       <li><strong>Final:</strong> frames 6&ndash;8 and 10. Instant vs. next-loop controls, infilling, layering and feedback, exhibition mode.</li>
       <li><strong>Stretch:</strong> frame 9 extra inputs (sensors, OCR) and other audio sources such as Max/MSP, RAVE and Stable Audio.</li>
     </ul>
@@ -45,39 +54,39 @@
     <h2>Frames</h2>
     <figure>
       <img src="frames/frame_01.svg" alt="Storyboard frame 1: System overview">
-      <figcaption><strong>1. System overview.</strong> Audio, MIDI and sensor inputs feed the p5.js app, which talks to the MIDI-GPT server and a synth. The output audio loops back as new conditioning.</figcaption>
+      <figcaption><strong>1. System overview.</strong> Every track is its own pipeline. Audio track → FX → mixer. MIDI track → synth → FX → mixer. MIDI-GPT reads conditioning from tracks and writes MIDI tracks.</figcaption>
     </figure>
     <figure>
       <img src="frames/frame_02.svg" alt="Storyboard frame 2: Idle state">
-      <figcaption><strong>2. Idle state.</strong> Empty radial sequencer with slow drifting particles and the prompt “give it a sound”.</figcaption>
+      <figcaption><strong>2. Idle state.</strong> Empty radial sequencer with slow drifting particles. The outer dashed ring is the audio lane and the inner rings are MIDI tracks.</figcaption>
     </figure>
     <figure>
-      <img src="frames/frame_03.svg" alt="Storyboard frame 3: Feed it audio">
-      <figcaption><strong>3. Feed it audio.</strong> The visitor hums, taps, or drops in a clip. The waveform is the conditioning input.</figcaption>
+      <img src="frames/frame_03.svg" alt="Storyboard frame 3: Audio becomes a track">
+      <figcaption><strong>3. Audio becomes a track.</strong> The visitor records a loop, triggers a one-shot, or opens a stream. The audio plays back on the outer waveform ring through its own FX.</figcaption>
     </figure>
     <figure>
       <img src="frames/frame_04.svg" alt="Storyboard frame 4: Generation request">
-      <figcaption><strong>4. Generation request.</strong> Pick a track, bars, temperature and density. Pending particles stream toward the target ring while the request is in flight.</figcaption>
+      <figcaption><strong>4. Generation request.</strong> Audio (and optionally MIDI) tracks condition MIDI-GPT. Pending particles run from the audio ring to the target MIDI ring while the audio keeps playing.</figcaption>
     </figure>
     <figure>
       <img src="frames/frame_05.svg" alt="Storyboard frame 5: First loop plays">
-      <figcaption><strong>5. First loop plays.</strong> Generated notes land on the ring and a playhead sweeps them. Pitch and velocity map to colour and size.</figcaption>
+      <figcaption><strong>5. First loop plays.</strong> Generated notes land on the MIDI ring and are rendered by a synth. The audio track plays untouched alongside.</figcaption>
     </figure>
     <figure>
       <img src="frames/frame_06.svg" alt="Storyboard frame 6: Steering">
-      <figcaption><strong>6. Steering.</strong> Synth knobs respond instantly. Generation controls queue until the next loop swap.</figcaption>
+      <figcaption><strong>6. Steering.</strong> Synth, FX and mix controls respond instantly. Generation controls queue until the next loop swap.</figcaption>
     </figure>
     <figure>
       <img src="frames/frame_07.svg" alt="Storyboard frame 7: Infilling">
       <figcaption><strong>7. Infilling.</strong> Select an arc of a ring and only that region is regenerated. Old notes fade as ghosts, pinned notes stay.</figcaption>
     </figure>
     <figure>
-      <img src="frames/frame_08.svg" alt="Storyboard frame 8: Layering and feedback">
-      <figcaption><strong>8. Layering and feedback.</strong> Add drums, bass, chords and lead. The loop's own audio re-enters as the next conditioning input.</figcaption>
+      <img src="frames/frame_08.svg" alt="Storyboard frame 8: Layering and bounce">
+      <figcaption><strong>8. Layering and bounce.</strong> Add drums, bass, chords and lead. Any track can be bounced to audio and reused as a new audio track or as conditioning.</figcaption>
     </figure>
     <figure>
       <img src="frames/frame_09.svg" alt="Storyboard frame 9: Other ways to steer">
-      <figcaption><strong>9. Other ways to steer.</strong> Touchpad, hand tracking, knobs and sensors, and OCR all map onto the same parameters.</figcaption>
+      <figcaption><strong>9. Other ways to steer.</strong> Touchpad, hand tracking, knobs and sensors, and OCR all map onto generation, synth, FX or mix parameters.</figcaption>
     </figure>
     <figure>
       <img src="frames/frame_10.svg" alt="Storyboard frame 10: Exhibition mode">
