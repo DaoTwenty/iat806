@@ -1,0 +1,9 @@
+punch/punch0-4.mp3
+  From "37 hits/punches" by Independent.nu (hit09, hit25, hit32, hit37, hit12)
+  License: CC0 (public domain)
+  Source: https://opengameart.org/content/37-hitspunches
+
+grunt/grunt0-4.mp3
+  From "Male Grunt/Yelling sounds" by HaelDB (3grunt1-5), made louder
+  License: CC0 (public domain), also offered as OGA-BY 3.0
+  Source: https://opengameart.org/content/male-gruntyelling-sounds

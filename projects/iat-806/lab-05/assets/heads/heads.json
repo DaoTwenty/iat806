@@ -1,0 +1,27 @@
+[
+  {
+    "name": "buzz",
+    "file": "assets/heads/head-buzz.png",
+    "color": "#8d5a3b"
+  },
+  {
+    "name": "mohawk",
+    "file": "assets/heads/head-mohawk.png",
+    "color": "#f1c7a5"
+  },
+  {
+    "name": "bald",
+    "file": "assets/heads/head-bald.png",
+    "color": "#c68a5e"
+  },
+  {
+    "name": "bun",
+    "file": "assets/heads/head-bun.png",
+    "color": "#e8b48f"
+  },
+  {
+    "name": "afro",
+    "file": "assets/heads/head-afro.png",
+    "color": "#5a3a28"
+  }
+]

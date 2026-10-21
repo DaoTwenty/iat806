@@ -1,0 +1,5 @@
+crouch-jumping.mp3
+  "Crouch jumping in your walls" by Fupi
+  License: CC0 (public domain)
+  Source: https://opengameart.org/node/159864
+  Converted from the original FLAC to MP3.

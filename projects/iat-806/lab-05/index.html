@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lab 05 — Misbehaving Balls — Paul Triana</title>
+  <title>Lab 05 — Fighting Pit — Paul Triana</title>
 
   <!-- Three folders deep, so three levels up to the stylesheet -->
   <link rel="stylesheet" href="../../../style.css">
@@ -11,8 +11,10 @@
 
   <!-- p5.js, version 2.3.3. Every sketch page needs this line. -->
   <script src="https://cdn.jsdelivr.net/npm/p5@2.3.3/lib/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5.sound@0.4.1/dist/p5.sound.min.js"></script>
 
-  <!-- Your code. Keep this line last. -->
+  <!-- Your code. Keep these lines last. -->
+  <script src="sound.js"></script>
   <script src="sketch.js"></script>
 </head>
 <body>
@@ -28,15 +30,21 @@
   <main>
     <a class="back" href="../index.html">&larr; IAT 806</a>
 
-    <h1>Lab 05 — Misbehaving Balls</h1>
+    <h1>Lab 05 — Fighting Pit</h1>
 
     <!-- The canvas p5 creates gets placed right here. -->
     <div id="sketch-holder"></div>
 
     <h2>Notes</h2>
-    <!-- EDIT ME: describe what your two new methods do -->
     <p>
-      Work in progress: the in-class Ball sketch, about to get two new methods.
+      Fighters with random looks hunt each other down, trade punches and get
+      knocked out flat until one is left standing. Press <strong>f</strong> to
+      throw in a new fighter. Click or press a key to start the sound.
+    </p>
+
+    <p>
+      Music: "Crouch jumping in your walls" by Fupi. Punches: Independent.nu.
+      Grunts: HaelDB. All CC0, from OpenGameArt.
     </p>
 
     <p>
