@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Final Project Storyboard v2 — Paul Triana</title>
+
+  <link rel="stylesheet" href="../../../style.css">
+  <script src="../../../theme.js"></script>
+  <style>
+    figure { margin: 1.5rem 0; }
+    figure img { width: 100%; height: auto; border-radius: 8px; }
+    figcaption { margin-top: 0.5rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a class="site-name" href="../../../index.html">Paul Triana</a>
+    <nav>
+      <a href="../../../index.html">Home</a>
+      <a href="../../index.html">Projects</a>
+    </nav>
+  </header>
+
+  <main>
+    <a class="back" href="../index.html">&larr; IAT 806</a>
+
+    <h1>Final Project Storyboard v2 — Listening Loop</h1>
+    <p class="tagline">Version 2 &middot; interaction flow</p>
+
+    <p>
+      <a href="../final-project-storyboard/index.html">Version 1</a> was a row of ten frames.
+      It showed each screen, but not what moves a visitor from one screen to the next or
+      where the experience branches. Version 2 is one diagram that tells the story of the
+      interaction and the interface at the same time.
+    </p>
+
+    <figure>
+      <a href="interaction_flow.svg"><img src="interaction_flow.svg" alt="Interaction flow diagram for Listening Loop: states, triggers, decisions and pseudocode"></a>
+      <figcaption>Click the diagram to open it full size, or <a href="interaction_flow.pdf">download the PDF</a>.</figcaption>
+    </figure>
+
+    <h2>How to read it</h2>
+    <ul>
+      <li><strong>Cards are states.</strong> Each has a sketch of the screen and three lines: what the visitor does, what the system sees, and what the system does.</li>
+      <li><strong>Arrows are triggers.</strong> Each arrow names the action or condition that moves to the next state.</li>
+      <li><strong>Diamonds are decisions.</strong> One checks whether MIDI came back from the model. The other runs every bar while the loop plays and asks what the visitor did.</li>
+      <li><strong>Line style is timing.</strong> Generation changes wait for the next downbeat (amber dashed). Synth, FX and mix changes apply instantly (green dashed).</li>
+      <li><strong>Pseudocode</strong> follows the same flow, numbered to match the cards.</li>
+    </ul>
+
+    <h2>The flow</h2>
+    <ol>
+      <li><strong>Main path:</strong> idle &rarr; audio becomes a track &rarr; generation request &rarr; the loop plays.</li>
+      <li><strong>The loop:</strong> every bar, the visitor can steer the sound, infill a region, or layer and bounce tracks. Each branch returns to the state it re-enters. Bouncing sends a track back in as new audio, which closes the feedback loop.</li>
+      <li><strong>Other inputs:</strong> gestures, sensors and OCR feed the same decision. They are other ways to trigger the same actions.</li>
+      <li><strong>Exhibition:</strong> after 60 s with no input the piece plays itself. A touch hands control back. After 5 min with nobody there, it resets.</li>
+    </ol>
+
+    <h2>Scope</h2>
+    <ul>
+      <li><strong>Core (midpoint demo, Nov 4):</strong> states 1&ndash;5, with one control.</li>
+      <li><strong>Final:</strong> infilling, layering and bounce, exhibition mode.</li>
+      <li><strong>Stretch:</strong> other inputs (sensors, hand tracking, OCR).</li>
+    </ul>
+    <p>The thresholds (&minus;30 dB, 8 s, 60 s, 5 min) are starting values to tune in testing.</p>
+
+    <h2>AI use</h2>
+    <p>The diagram and sketches were drawn with AI assistance. The idea and direction are mine.</p>
+  </main>
+
+  <footer>
+    <p><a href="../index.html">&larr; Back to IAT 806</a></p>
+  </footer>
+
+</body>
+</html>
