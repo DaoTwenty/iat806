@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ghostly Fireflies — Paul Triana</title>
+
+  <!-- Three folders deep, so three levels up to the stylesheet -->
+  <link rel="stylesheet" href="../../../style.css">
+  <script src="../../../theme.js"></script>
+
+  <!-- p5.js, version 2.3.3. Every sketch page needs this line. -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@2.3.3/lib/p5.min.js"></script>
+
+  <!-- ml5.js, for the body segmentation. It has to come before sketch.js -->
+  <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
+
+  <!-- Your code. Keep these lines last. firefly.js has to come before sketch.js -->
+  <script src="firefly.js"></script>
+  <script src="sketch.js"></script>
+</head>
+<body>
+
+  <header>
+    <a class="site-name" href="../../../index.html">Paul Triana</a>
+    <nav>
+      <a href="../../../index.html">Home</a>
+      <a href="../../index.html">Projects</a>
+    </nav>
+  </header>
+
+  <main>
+    <a class="back" href="../index.html">&larr; IAT 806</a>
+
+    <h1>Ghostly Fireflies</h1>
+    <p class="tagline">Over a beautiful nocturnal pond, hundreds of fireflies recall the ghostly figure of the lake's guardian</p>
+
+    <!-- The canvas p5 creates gets placed right here. -->
+    <div id="sketch-holder"></div>
+
+    <h2>Notes</h2>
+    <p>
+      Allow the camera and stand in front of it: the fireflies that your body
+      covers light up and glow. Click a firefly to make it flash. Press
+      <strong>h</strong> to see the mask the camera is using.
+    </p>
+
+  
+    <p>
+      Source code: <a href="https://github.com/DaoTwenty/IAT806-Lab06">github.com/DaoTwenty/IAT806-Lab06</a>
+    </p>
+  </main>
+
+  <footer>
+    <p><a href="../index.html">&larr; Back to IAT 806</a></p>
+  </footer>
+
+</body>
+</html>
